@@ -18,14 +18,16 @@ jobs:
       matrix:
         linux:
           imageName: ubuntu-latest
-        mac:
-          imageName: macOS-latest
+        # mac:
+        #   imageName: macOS-latest
         windows:
           imageName: windows-latest
     pool:
       vmImage: $(imageName)
     steps:
       - task: InstallMATLAB@1
+        inputs:
+          release: latest-including-prerelease
       
       # Runs build to create MEX file and then run tests
       - task: RunMATLABBuild@1
@@ -53,6 +55,8 @@ jobs:
       vmImage: ubuntu-latest
     steps:
       - task: InstallMATLAB@1
+        inputs:
+          release: latest-including-prerelease
       
       # Downloads all mex files from previous job
       - task: DownloadPipelineArtifact@2
@@ -69,7 +73,7 @@ jobs:
       # Packages all files in toolbox folder into a mltbx toolbox package
       - task: RunMATLABBuild@1
         inputs:
-          tasks: packageToolbox
+          tasks: package
         env:
           MLM_LICENSE_TOKEN: $(MLM_LICENSE_TOKEN)
       
