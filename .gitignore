@@ -36,3 +36,5 @@ codegen/
 .buildtool/
 test-results/
 release/
+KgToPoundsPythonBuild/
+pythonBuild.mat

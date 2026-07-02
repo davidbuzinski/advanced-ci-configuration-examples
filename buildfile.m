@@ -14,6 +14,9 @@ plan("mex") = MexTask("src/arrayProduct.c", "toolbox");
 % Add a task to run tests and generate test results
 plan("test") = TestTask("tests/arrayProductTest.m", TestResults="test-results/results.xml", Dependencies = "mex");
 
+plan("buildPythonPackage") = Task(Actions=@buildPythonPackage, ...
+    Description = "Build a Python Package from MATLAB function");
+
 % Add a task to run equivalence tests
 plan("equivalenceTest") = TestTask("tests/KgToPoundsEquivalenceTest.m", Dependencies = ["mex" "buildPythonPackage"]);
 
@@ -25,7 +28,6 @@ plan.DefaultTasks = "package";
 end
 
 function buildPythonPackage(~)
-% Build a Python Package from MATLAB function
 buildResults = compiler.build.pythonPackage("src/KgToPounds.m", OutputDir = "KgToPoundsPythonBuild");
 save("pythonBuild.mat","buildResults");
 end
