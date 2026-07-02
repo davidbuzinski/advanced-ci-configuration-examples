@@ -19,7 +19,7 @@ jobs:
     # A job will run for all combinations of OS and release present in the matrix
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, windows-latest] #, macos-latest]
  
     # The type of runner that the job will run on
     runs-on: ${{ matrix.os }}

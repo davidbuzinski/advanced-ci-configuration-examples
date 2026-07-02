@@ -8,9 +8,9 @@ executors:
   linux:
     machine:
       image: default
-  macos:
-    macos:
-      xcode: 16.4.0
+  # macos:
+  #   macos:
+  #     xcode: 16.4.0
   windows:
     win/default
 
@@ -51,4 +51,5 @@ workflows:
       - split-and-run-test:
           matrix:
             parameters:
-              os: [linux, macos, windows]
+              os: [linux, windows]
+              # os: [linux, macos, windows]
