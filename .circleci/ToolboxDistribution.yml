@@ -60,7 +60,7 @@ jobs:
       
       # Packages all files in toolbox folder into a mltbx toolbox package
       - matlab/run-build:
-          tasks: packageToolbox
+          tasks: package
       
       # The packaged toolbox is distributed as a GitHub release
       - gh/install

@@ -29,5 +29,5 @@ jobs:
       - task: PublishBuildArtifacts@1
         inputs:
           PathtoPublish: KgToPoundsPythonBuild
-          ArtifactName: KgToPounds-$(release)-$(imageName)
+          ArtifactName: KgToPounds-$(imageName)
           publishLocation: Container
