@@ -9,9 +9,9 @@ executors:
   linux:
     machine:
       image: default
-  # macos:
-  #   macos:
-  #     xcode: 16.4.0
+  macos:
+    macos:
+      xcode: 16.4.0
   windows:
     win/default
 
@@ -75,8 +75,7 @@ workflows:
       - compile-and-test-mex:
           matrix:
             parameters:
-              os: [linux, windows]
-              # os: [linux, macos, windows]
+              os: [linux, macos, windows]
       - create-and-release-toolbox:
           requires:
             - compile-and-test-mex
