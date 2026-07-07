@@ -18,8 +18,9 @@ jobs:
       matrix:
         linux:
           imageName: ubuntu-latest
-        mac:
-          imageName: macOS-latest
+        # Disabled until Azure DevOps supports Apple Silicon runners
+        # mac:
+        #   imageName: macOS-latest
         windows:
           imageName: windows-latest
     pool:
