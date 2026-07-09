@@ -16,7 +16,7 @@ jobs:
     # A job will run for all the OS present in the matrix
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-24.04, windows-latest, macos-latest]
     
     # The type of runner that the job will run on
     runs-on: ${{ matrix.os }}
@@ -52,7 +52,7 @@ jobs:
   create-and-release-toolbox:
     # This job executes only after a successful completion of 'compile-and-test-mex' job
     needs: compile-and-test-mex
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - uses: actions/checkout@v6
